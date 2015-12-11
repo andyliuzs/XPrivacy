@@ -195,7 +195,7 @@ public class ActivityMain extends ActivityBase implements OnItemSelectedListener
 		// Annotate
 		Meta.annotate(this.getResources());
 
-		// Get localized restriction name
+		//获取 本地存储的 权限名称
 		List<String> listRestrictionName = new ArrayList<String>(PrivacyManager.getRestrictions(this).navigableKeySet());
 		listRestrictionName.add(0, getString(R.string.menu_all));
 
@@ -1252,7 +1252,7 @@ public class ActivityMain extends ActivityBase implements OnItemSelectedListener
 		dlgAbout.show();
 	}
 
-	// Tasks
+	// 获取应用列表
 
 	private class AppListTask extends AsyncTask<Object, Integer, List<ApplicationInfoEx>> {
 		private String mRestrictionName;
@@ -1758,7 +1758,7 @@ public class ActivityMain extends ActivityBase implements OnItemSelectedListener
 					if (fUsed)
 						used = (PrivacyManager.getUsage(xAppInfo.getUid(), mRestrictionName, null) != 0);
 
-					// Get if internet
+					// 是否有网络权限
 					boolean internet = false;
 					if (fInternet)
 						internet = xAppInfo.hasInternet(mContext);
@@ -1795,12 +1795,12 @@ public class ActivityMain extends ActivityBase implements OnItemSelectedListener
 							onDemand = !PrivacyManager.getRestrictionEx(xAppInfo.getUid(), mRestrictionName, null).asked;
 					}
 
-					// Get if user
+					// 过滤自己
 					boolean user = false;
 					if (fUser)
 						user = !xAppInfo.isSystem();
 
-					// Get if system
+					// 过滤 系统软件
 					boolean system = false;
 					if (fSystem)
 						system = xAppInfo.isSystem();

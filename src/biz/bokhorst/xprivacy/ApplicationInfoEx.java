@@ -261,7 +261,10 @@ public class ApplicationInfoEx implements Comparable<ApplicationInfoEx> {
 	public long getModificationTime(Context context) {
 		return Long.parseLong(PrivacyManager.getSetting(-getUid(), PrivacyManager.cSettingModifyTime, "0"));
 	}
-
+	/***
+	 * 过滤系统软件+Xposed+自己
+	 * @return
+	 */
 	public boolean isSystem() {
 		boolean mSystem = false;
 		for (ApplicationInfo appInfo : mMapAppInfo.values()) {
