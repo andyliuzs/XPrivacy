@@ -24,6 +24,11 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XC_MethodHook;
 import static de.robv.android.xposed.XposedHelpers.findClass;
 
+/***
+ * 
+ * @author andyliu
+ *
+ */
 public class XPrivacy implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	private static String mSecret = null;
 	private static List<String> mListHookError = new ArrayList<String>();
